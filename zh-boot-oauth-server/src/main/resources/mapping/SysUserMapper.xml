@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.zhenghao.zh.server.dao.SysUserMapper">
+
+	<select id="listUser" resultType="SysUserEntity">
+		SELECT
+			user_id,
+			username,
+			password,
+			gmt_create
+		FROM
+			sys_user
+		<where>
+			1=1
+		</where>
+		ORDER BY
+			user_id DESC
+	</select>
+
+	<select id="findUserByUsername" resultType="SysUserEntity">
+		SELECT
+		user_id,
+		username,
+		password,
+		gmt_create
+		FROM
+		sys_user
+		<where>
+			username = #{username}
+		</where>
+		ORDER BY
+		user_id DESC
+	</select>
+</mapper>

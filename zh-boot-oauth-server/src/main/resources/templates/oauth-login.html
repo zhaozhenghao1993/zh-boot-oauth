@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>授权登陆</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/nprogress.css}">
+    <link rel="stylesheet" th:href="@{/css/oauth-login.css}">
+</head>
+<body class="text-center">
+    <div class="alert alert-danger" role="alert" th:text="${error}">
+
+    </div>
+    <form class="form-signin" action="/login/oauth/server/authorize" method="post">
+        <input type="hidden" name="client_id" id="client_id" th:value="${authorize.client_id}"  class="form-control">
+        <input type="hidden" name="redirect_uri" id="redirect_uri" th:value="${authorize.redirect_uri}" class="form-control">
+        <input type="hidden" name="response_type" id="response_type" th:value="${authorize.response_type}" class="form-control">
+        <input type="hidden" name="state" id="state" th:value="${authorize.state}" class="form-control">
+        <h1 class="h3 mb-3 font-weight-normal">授权登陆</h1>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/nprogress.js}"></script>
+<script th:src="@{/js/common.js}"></script>
+</body>
+</html>
